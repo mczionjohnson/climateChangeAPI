@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Change News</title>
+</head>
+<body>
+    <h2>Climate Change News API</h2>
+
+<p> Api for climate change news across the World from a pre-set list of newspapers</p>
+
+<p> We cover only this newspapers</p>
+<ul>
+
+<li>thetimes</li>
+<li>guardian</li>
+<li>dm</li>
+<li>cityam</li>
+<li>nyp</li>
+<li>smh</li>
+<li>telegraph</li>
+<li>nyt</li>
+<li>es</li>
+<li>latimes</li>
+<li>bbc</li>
+
+</ul>
+
+
+<h2> Endpoints </h2>
+<h3> /news </h3>
+<p>Get a json response of latest climate news from all the pre-set newspapers</p>
+<p> example:</p>
+
+{ 
+    <br>
+    &emsp; "title": heading of various climate change news,
+    <br>
+    &emsp; "address": link to read the full story
+    <br>
+
+}
+
+
+<p>URL: https://climatechangenewsmedia.herokuapp.com/news</p>
+<p>HTTP method: GET</p>
+<p>STATUS: 200</p>
+
+<br>
+
+<h3> /news/< specify a newspaper name in lowercase only >  </h3>
+<p> Get a json response of the specified newspaper</p>
+<p> example:</p>
+{
+    <br>
+    &emsp; "title": heading of various climate change news,
+    <br>
+    &emsp;"url": link to read the full story,
+    <br>
+    &emsp;"source": name of the specified newspaper
+    <br>
+}
+
+
+<p>URL: https://climatechangenewsmedia.herokuapp.com/news/< newspaper name ></p>
+<p>HTTP method: GET</p>
+<p>STATUS: 200</p>
+
+
+
+
+</body>
+</html>
