@@ -136,11 +136,13 @@ app.get('/news/:newspaperId', async(req, res) => {
     // for each newspaper from the filter
     // if it matches the newpaperId
     // use only the first element in the result and get the address
-    const newspaperAddress = newspapers.filter(newspaper => newspaper.name == newspaperId)[0].address
-    const newspaperBase = newspapers.filter(newspaper => newspaper.name == newspaperId)[0].base
+    // const newspaperAddress = newspapers.filter(newspaper => newspaper.name == newspaperId)[0].address
+    // const newspaperBase = newspapers.filter(newspaper => newspaper.name == newspaperId)[0].base
+    const { address, base } = await newspapers.filter(newspaper => newspaper.name == newspaperId)[0]
 
     // console.log(newspaperAddress)
-    await axios.get(newspaperAddress)
+    // await axios.get(newspaperAddress)
+    await axios.get(address)
     .then(response => {
         const html = response.data
         const $ = cheerio.load(html)
@@ -156,7 +158,7 @@ app.get('/news/:newspaperId', async(req, res) => {
             
             specificArticles.push({
                 title,
-                url: newspaperBase + url,
+                url: base + url,
                 source: newspaperId
             })
         })
