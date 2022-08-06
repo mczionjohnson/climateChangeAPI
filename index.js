@@ -84,8 +84,8 @@ const newspapers = [
 }
 ]
 
-const articles = []
-const specificArticles = []
+let articles = []
+let specificArticles = []
 
 
 
@@ -131,6 +131,7 @@ app.get('/news', (req, res) => {
 })
 
 app.get('/news/:newspaperId', async(req, res) => {
+    // specificArticles = []
     const newspaperId = req.params.newspaperId
 
     // for each newspaper from the filter
@@ -138,7 +139,7 @@ app.get('/news/:newspaperId', async(req, res) => {
     // use only the first element in the result and get the address
     // const newspaperAddress = newspapers.filter(newspaper => newspaper.name == newspaperId)[0].address
     // const newspaperBase = newspapers.filter(newspaper => newspaper.name == newspaperId)[0].base
-    const { address, base } = await newspapers.filter(newspaper => newspaper.name == newspaperId)[0]
+    const { address, base } = await newspapers.filter(newspaper => newspaper.name === newspaperId)[0]
 
     // console.log(newspaperAddress)
     // await axios.get(newspaperAddress)
@@ -164,6 +165,8 @@ app.get('/news/:newspaperId', async(req, res) => {
         })
         
         res.json(specificArticles)
+        specificArticles = []
+        
     }).catch((err) => console.log(err.message))
 })
           
