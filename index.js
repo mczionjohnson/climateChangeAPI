@@ -127,7 +127,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/news', (req, res) => {
-    res.json(articles)
+    res.status(200).json(articles)
 })
 
 app.get('/news/:newspaperId', async(req, res) => {
