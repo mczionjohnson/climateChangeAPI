@@ -132,6 +132,7 @@ app.get('/news', (req, res) => {
 
 app.get('/news/:newspaperId', async(req, res) => {
     // specificArticles = []
+    try{
     const newspaperId = req.params.newspaperId
 
     // for each newspaper from the filter
@@ -167,10 +168,11 @@ app.get('/news/:newspaperId', async(req, res) => {
         res.json(specificArticles)
         specificArticles = []
         
-    }).catch((err) => console.log(err.message))
+    })}
+    catch {
+        res.redirect(404, '/')
+    }     
 })
-          
-
 
 
 app.listen(process.env.PORT || 3000, () => console.log('server running'))
