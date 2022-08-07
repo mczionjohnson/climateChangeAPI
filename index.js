@@ -40,7 +40,7 @@ const newspapers = [
 {
     name: 'nyt',
     address: 'https://www.nytimes.com/international/section/climate',
-    base: '',
+    base: 'https://www.nytimes.com'
 },
 {
     name: 'latimes',
@@ -175,4 +175,4 @@ app.get('/news/:newspaperId', async(req, res) => {
 })
 
 
-app.listen(process.env.PORT || 3000, () => console.log('server running'))
+app.listen(process.env.PORT || 5000, () => console.log('server running'))
