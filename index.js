@@ -138,9 +138,10 @@ app.get('/news/:newspaperId', async(req, res) => {
     // for each newspaper from the filter
     // if it matches the newpaperId
     // use only the first element in the result and get the address
-    // const newspaperAddress = newspapers.filter(newspaper => newspaper.name == newspaperId)[0].address
-    // const newspaperBase = newspapers.filter(newspaper => newspaper.name == newspaperId)[0].base
-    const { address, base } = await newspapers.filter(newspaper => newspaper.name === newspaperId)[0]
+    // const newspaperAddress = newspapers.find(newspaper => newspaper.name == newspaperId).address
+    // const newspaperBase = newspapers.find(newspaper => newspaper.name == newspaperId).base
+    const { address, base } = await newspapers.find(newspaper => newspaper.name === newspaperId)
+
 
     // console.log(newspaperAddress)
     // await axios.get(newspaperAddress)
