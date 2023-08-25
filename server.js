@@ -1,18 +1,18 @@
 const express = require('express')
 const axios = require('axios')
 const cheerio = require('cheerio')
-// const expressLayouts = require('express-ejs-layouts')
+const expressLayouts = require('express-ejs-layouts')
 
 
 
 const app = express()
 
-// app.set('view engine', 'ejs')
-// app.set('views', __dirname + '/views')
-// app.set('layout', 'layouts/layout') 
+app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views')
+app.set('layout', 'layouts/layout') 
 
 
-// app.use(expressLayouts)
+app.use(expressLayouts)
 
 
 
@@ -125,8 +125,8 @@ newspapers.forEach(newspaper => {
 
 
 app.get('/', (req, res) => {
-    res.status(200).json('Hello API endpoints')
-    // res.status(200).render('views')
+    // res.status(200).json('Hello API endpoints')
+    res.status(200).render('views')
 })
 
 app.get('/news', (req, res) => {
